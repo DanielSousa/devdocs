@@ -5,9 +5,6 @@ redirect_from:
   - /guides/v2.3/graphql/reference/categories.html
 ---
 
-{:.bs-callout-warning}
-The `category` query has been deprecated. Use the [categoryList]({{page.baseurl}}/graphql/queries/category-list.html) query instead.
-
 The `category` query allows you to search for a single category definition or the entire category tree. To return multiple category levels in a single call, define the response so that it contains up to ten nested `children` options. You cannot return the entire category tree if it contains more than 10 sublevels unless the `queryDepth` parameter in the GraphQL `di.xml` file has been reconfigured.
 
 ## Syntax
@@ -18,11 +15,9 @@ category (
 ): CategoryTree
 ```
 
-## Example usage
+## Example Usage
 
-### Return the category tree of a top-level category
-
-The following query returns information about category ID `20` and four levels of subcategories. In the sample data, category ID `20` is assigned to the `Women` category.
+The following query returns information about category ID `20` and four levels of subcategories. In the sample data, category ID `20` is assigned to the "Women" category.
 
 **Request:**
 
@@ -143,9 +138,7 @@ The following query returns information about category ID `20` and four levels o
 }
 ```
 
-### Return breadcrumb information
-
-The following query returns breadcrumb information about the women's `Tops` category (`id` = 25).
+The following query returns breadcrumb information about the women's tops category (`id` = 25).
 
 **Request:**
 
@@ -181,15 +174,13 @@ The following query returns breadcrumb information about the women's `Tops` cate
           "category_id": 20,
           "category_name": "Women",
           "category_level": 2,
-          "category_url_key": "women",
-          "category_url_path": "women"
+          "category_url_key": "women"
         },
         {
           "category_id": 21,
           "category_name": "Tops",
           "category_level": 3,
-          "category_url_key": "tops-women",
-          "category_url_path": "women/tops-women"
+          "category_url_key": "tops-women"
         }
       ]
     }
